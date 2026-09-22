@@ -1,0 +1,38 @@
+---
+
+---
+
+<nav
+  class="fixed top-0 left-0 z-50 w-full border-b border-zinc-800 bg-zinc-950"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <a href="/" class="text-white font-bold text-xl"> Impresiones 3D </a>
+
+    <button id="menu-btn" class="md:hidden text-white"> ☰ </button>
+
+    <ul
+      id="mobile-menu"
+      class="hidden absolute left-0 top-full w-full bg-zinc-950 border-t border-zinc-800 md:static md:flex md:w-auto md:border-none"
+    >
+      <li><a class="block p-4 text-white" href="/">Inicio</a></li>
+      <li><a class="block p-4 text-white" href="/galeria">Galería</a></li>
+      <li><a class="block p-4 text-white" href="/materiales">Materiales</a></li>
+      <li><a class="block p-4 text-white" href="#">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initNavbar() {
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
+
+  document.addEventListener("astro:page-load", initNavbar);
+</script>

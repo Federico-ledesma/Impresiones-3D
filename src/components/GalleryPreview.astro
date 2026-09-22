@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets";
+const { id } = Astro.props;
+
+import Bulbasur from "../assets/Hero/hero.png";
+
+import bulbasur from "../assets/Gallery/bulbasur.png";
+import maceta from "../assets/Gallery/maceta.png";
+import pikachu from "../assets/Gallery/pikachu.png";
+import soporte from "../assets/Gallery/soporte.png";
+
+import Brillo from "./brillo.astro";
+---
+
+<section class="h-auto mt-6">
+  <div class="flex justify-around items-center flex-col lg:flex-row">
+    <div class="flex flex-col gap-4">
+      <h1 class="font-black text-3xl">Galeria de trabajos</h1>
+      <p>Ideas que cobraron vida con impresión 3D</p>
+    </div>
+
+    <div class="mr-4 mt-4">
+      <a href="/galeria/">
+        <button
+          class="rounded-xl bg-violet-600 active:scale-95 p-2 text-base font-bold text-white shadow-lg shadow-violet-600/30 transition-all duration-200"
+        >
+          Ver más >
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div
+    class="grid grid-cols-2 grid-rows-4 gap-4 mx-auto my-6 max-w-7xl px-4
+  lg:grid-cols-6 lg:grid-rows-6 lg:h-140 lg:my-10"
+  >
+    <!-- Maceta -->
+    <a href="/galeria/maceta" class="contents">
+      <div
+        class="row-span-2 lg:col-span-2 lg:row-span-3 group relative overflow-hidden rounded-2xl lg:timeline-view animate-fade-in-right animate-range-[entry_10%_contain_30%] cursor-pointer"
+      >
+        <Image
+          src={maceta}
+          alt="Maceta impresa en 3D"
+          class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-90"
+        />
+        <Brillo />
+      </div>
+    </a>
+
+    <!-- Pikachu -->
+    <a href="/galeria/pikachu" class="contents">
+      <div
+        class="row-span-2 lg:col-span-2 lg:row-span-3 lg:col-start-1 lg:row-start-4 group relative overflow-hidden rounded-2xl lg:timeline-view animate-fade-in-right animate-range-[entry_10%_contain_30%]"
+      >
+        <Image
+          src={pikachu}
+          alt="Pikachu impreso en 3D"
+          class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-90"
+        />
+
+        <Brillo />
+      </div>
+    </a>
+
+    <!-- Bulbasur principal -->
+    <a href="/galeria/soporte-auriculares" class="contents">
+      <div
+        class="row-span-2 row-start-3 lg:col-span-2 lg:row-span-3 lg:col-start-5 group relative overflow-hidden rounded-2xl lg:timeline-view animate-fade-in-left animate-range-[entry_10%_contain_30%]"
+      >
+        <Image
+          src={Bulbasur}
+          alt="Bulbasur impreso en 3D"
+          class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-90"
+        />
+
+        <Brillo />
+      </div>
+    </a>
+
+    <!-- Soporte -->
+    <a href="/galeria/Soporte" class="contents">
+      <div
+        class="row-span-2 row-start-3 lg:col-span-2 lg:row-span-6 lg:col-start-3 lg:row-start-1 group relative overflow-hidden rounded-2xl lg:timeline-view animate-fade-in-up animate-range-[entry_10%_contain_30%]"
+      >
+        <Image
+          src={soporte}
+          alt="Soporte impreso en 3D"
+          class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-90"
+        />
+
+        <Brillo />
+      </div>
+    </a>
+
+    <!-- Bulbasur secundario -->
+    <a href="/galeria/bulbasur" class="contents">
+      <div
+        class="col-span-2 row-span-3 lg:col-span-2 lg:row-span-3 lg:col-start-5 lg:row-start-4 group relative overflow-hidden rounded-2xl lg:timeline-view animate-fade-in-left animate-range-[entry_10%_contain_30%]"
+      >
+        <Image
+          src={bulbasur}
+          alt="Figura de Bulbasur impresa en 3D"
+          class="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:brightness-90"
+        />
+
+        <Brillo />
+      </div>
+    </a>
+  </div>
+</section>

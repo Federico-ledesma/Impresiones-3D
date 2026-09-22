@@ -1,0 +1,74 @@
+<section
+  class="h-auto border border-white/20 rounded-xl m-4 p-4 bg-cyan-950/20 text-white
+  lg:m-22 lg:bg-transparent lg:border-none lg:timeline-view animate-fade-in-up animate-range-[entry_10%_contain_30%]"
+>
+  <!-- Encabezado superior -->
+  <div class="flex justify-between items-center">
+    <h2 class="flex gap-4 items-center text-xl font-bold">
+      <svg width="28" height="28" class="fill-current">
+        <use href="/sprite.svg#hogar"></use>
+      </svg>
+      Qué puedo imprimir ?
+    </h2>
+    <a href="/galeria/">
+      <span class="text-white/60 font-mono text-lg cursor-pointer">&gt;</span>
+    </a>
+  </div>
+
+  <!-- Grid corregido (filas automáticas) -->
+  <div class="grid grid-cols-2 gap-4 pt-6 lg:grid-cols-5">
+    <!-- Hogar -->
+    <div
+      class="border border-white/10 rounded-xl flex flex-col gap-3 items-center p-4 bg-gray-900 hover:bg-gray-800 transition-colors
+      lg:p-12 lg:cursor-pointer"
+    >
+      <svg width="28" height="28">
+        <use href="/sprite.svg#hogar"></use>
+      </svg>
+      <span class="text-sm font-medium">Hogar</span>
+    </div>
+
+    <!-- Gaming -->
+    <div
+      class="border border-white/10 rounded-xl flex flex-col gap-3 items-center p-4 bg-gray-900 hover:bg-gray-800 transition-colors
+      lg:p-12 lg:cursor-pointer"
+    >
+      <svg width="28" height="28">
+        <use href="/sprite.svg#gaming"></use>
+      </svg>
+      <span class="text-sm font-medium">Gaming</span>
+    </div>
+
+    <!-- Repuestos -->
+    <div
+      class="border border-white/10 rounded-xl flex flex-col gap-3 items-center p-4 bg-gray-900 hover:bg-gray-800 transition-colors
+      lg:p-12 lg:cursor-pointer"
+    >
+      <svg width="28" height="28">
+        <use href="/sprite.svg#repuesto"></use>
+      </svg>
+      <span class="text-sm font-medium">Repuestos</span>
+    </div>
+
+    <!-- Personalizados -->
+    <div
+      class="border border-white/10 rounded-xl flex flex-col gap-3 items-center p-4 bg-gray-900 hover:bg-gray-800 transition-colors
+      lg:p-12 lg:cursor-pointer"
+    >
+      <svg width="28" height="28">
+        <use href="/sprite.svg#brillo"></use>
+      </svg>
+      <span class="text-sm font-medium">Personalizados</span>
+    </div>
+
+    <!-- Decoración (Ocupa dos columnas abajo) -->
+    <div
+      class="border border-white/10 rounded-xl col-span-2 flex flex-col gap-3 items-center p-4 bg-gray-900 hover:bg-gray-800 transition-colors lg:col-span-1 lg:p-12 lg:cursor-pointer"
+    >
+      <svg width="28" height="28">
+        <use href="/sprite.svg#paleta"></use>
+      </svg>
+      <span class="text-sm font-medium">Decoración</span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,237 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/Navbar.astro";
+import PLA from "../assets/Materiales/PLA.png";
+import PETG from "../assets/Materiales/PETG.png";
+import TPU from "../assets/Materiales/TPU.png";
+
+import CTA from "../components/CTA.astro";
+---
+
+<Layout>
+  <NavBar />
+
+  <div class="max-w-7xl mx-auto px-4">
+    <div>
+      <h1
+        class="pt-26 flex justify-center items-end text-3xl md:text-4xl gap-4 font-bold"
+      >
+        <svg width="28" height="28" class="fill-current">
+          <use href="/sprite.svg#capas"></use>
+        </svg>
+        Materiales
+      </h1>
+      <p class="p-4 text-xl text-center text-gray-300">
+        Trabajamos con materiales de calidad para lograr las mejores
+        impresiones.
+      </p>
+    </div>
+
+    <!-- Contenedor Grid para PC -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 my-8">
+      <!-- Tarjeta de PLA -->
+      <div
+        class="bg-[#e100ff]/10 p-6 rounded-2xl flex flex-col justify-between h-full"
+      >
+        <div>
+          <div
+            class="aspect-video lg:aspect-square overflow-hidden rounded-2xl mb-4"
+          >
+            <Image
+              src={PLA}
+              alt="Maceta impresa en 3D"
+              class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+              <h2 class="text-2xl font-bold">PLA</h2>
+              <div
+                class="border border-violet-500 text-center rounded-2xl px-3 py-1"
+              >
+                <span
+                  class="text-sm font-semibold text-violet-500 uppercase tracking-wider"
+                  >Fácil de usar</span
+                >
+              </div>
+            </div>
+            <div>
+              <p class="text-base text-gray-300">
+                Biodegradable, rígido y de fácil impresión. Ideal para proyectos
+                decorativos, figuras y prototipos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <hr class="border border-violet-800/30 my-4" />
+          <ul class="flex flex-col gap-3">
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-morado"></use>
+              </svg>
+              Gran variedad de colores
+            </li>
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-morado"></use>
+              </svg>
+              Acabado superficial excelente
+            </li>
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-morado"></use>
+              </svg>
+              Ideal para uso general
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tarjeta de PETG -->
+      <div
+        class="bg-[#00aeff]/15 p-6 rounded-2xl flex flex-col justify-between h-full"
+      >
+        <div>
+          <div
+            class="aspect-video lg:aspect-square overflow-hidden rounded-2xl mb-4"
+          >
+            <Image
+              src={PETG}
+              alt="Maceta impresa en 3D"
+              class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+              <h2 class="text-2xl font-bold">PETG</h2>
+              <div
+                class="border border-[#00aeff] text-center rounded-2xl px-3 py-1"
+              >
+                <span
+                  class="text-sm font-semibold text-[#00aeff] uppercase tracking-wider"
+                  >Resistente</span
+                >
+              </div>
+            </div>
+            <div>
+              <p class="text-base text-gray-300">
+                Más resistente que el PLA. Ideal para piezas funcionales que
+                necesitan mayor durabilidad.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <hr class="border border-violet-800/30 my-4" />
+          <ul class="flex flex-col gap-3">
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-azul"></use>
+              </svg>
+              Resistente a impactos
+            </li>
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-azul"></use>
+              </svg>
+              Resistente a la humedad
+            </li>
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-azul"></use>
+              </svg>
+              Acabado brillante
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tarjeta de TPU -->
+      <div
+        class="bg-[#00ffd5]/10 p-6 rounded-2xl flex flex-col justify-between h-full"
+      >
+        <div>
+          <div
+            class="aspect-video lg:aspect-square overflow-hidden rounded-2xl mb-4"
+          >
+            <Image
+              src={TPU}
+              alt="Maceta impresa en 3D"
+              class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+              <h2 class="text-2xl font-bold">TPU</h2>
+              <div
+                class="border border-[#00ffd5] text-center rounded-2xl px-3 py-1"
+              >
+                <span
+                  class="text-sm font-semibold text-[#00ffd5] uppercase tracking-wider"
+                  >Flexible</span
+                >
+              </div>
+            </div>
+            <div>
+              <p class="text-base text-gray-300">
+                Material flexible y elástico. Perfecto para piezas que necesitan
+                resistencia y flexibilidad.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <hr class="border border-[#00ffd5]/30 my-4" />
+          <ul class="flex flex-col gap-3">
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-verde"></use>
+              </svg>
+              Alta flexibilidad
+            </li>
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-verde"></use>
+              </svg>
+              Resistente al desgaste
+            </li>
+            <li class="text-base flex items-center gap-3">
+              <svg width="24" height="24" class="shrink-0">
+                <use href="/sprite.svg#check-verde"></use>
+              </svg>
+              Ideal para protectores
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección ¿No sabés qué elegir? optimizada -->
+    <div
+      class="border border-dashed border-gray-600 rounded-2xl m-4 my-12 flex flex-col sm:flex-row justify-center items-center p-6 gap-4 bg-white/5 max-w-2xl mx-auto"
+    >
+      <div class="text-violet-400">
+        <svg width="40" height="40" class="fill-current">
+          <use href="/sprite.svg#pregunta"></use>
+        </svg>
+      </div>
+      <div class="text-center sm:text-left">
+        <h3 class="font-bold text-xl mb-1">¿No sabés qué material elegir?</h3>
+        <p class="text-gray-400 text-sm">
+          No te preocupes, te asesoraremos para encontrar el material ideal para
+          tu proyecto.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <CTA />
+</Layout>

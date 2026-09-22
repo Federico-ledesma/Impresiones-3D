@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+const impresiones = await getCollection("impresiones");
+
+export const prerender = true;
+
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTA from "../../components/CTA.astro";
+
+---
+
+<Layout>
+  <Navbar />
+  
+  <!-- Contenedor principal con tope de ancho para pantallas grandes -->
+  <main class="max-w-7xl mx-auto w-full h-full">
+    
+    <!-- Encabezado -->
+    <div class="flex flex-col gap-3 items-center text-center m-4 lg:my-16">
+      <h1 class="pt-26 lg:pt-10 text-3xl lg:text-5xl font-black">Galería de trabajos</h1>
+      <p class="text-lg lg:text-xl text-gray-600 dark:text-gray-300">
+        Conocé algunos de los proyectos que ya imprimí en 3D.
+      </p>
+    </div>
+
+    <!-- Grilla de productos -->
+    <section class="grid grid-cols-2 gap-4 m-4 lg:m-22 lg:grid-cols-4 lg:gap-6">
+      {
+        impresiones.map((impresion) => {
+          const { id, data } = impresion;
+          const {
+            title,
+            description,
+            image,
+            category,
+            material,
+            color,
+            featured,
+          } = data;
+
+          return (
+            <a href={`/galeria/${id}`} class="group">
+              <article class="flex flex-col overflow-hidden rounded-2xl bg-cyan-900/40 lg:bg-transparent lg:hover:bg-cyan-900/40 transition-all duration-300 transform lg:hover:scale-[1.02] lg:hover:shadow-xl lg:hover:shadow-cyan-950/20">
+
+                <!-- Imagen con contenedor de altura adaptativa -->
+                <div class="h-48 lg:h-64 w-full overflow-hidden ">
+                  <Image
+                    src={image}
+                    alt={title}
+                    class="h-full w-full object-cover transition-transform duration-500 lg:rounded-2xl lg:group-hover:scale-105"
+                    transition:name={`img-${id}`}
+                  />
+                </div>
+              
+                <!-- Información -->
+                <div class="w-full p-4 text-center transition-colors duration-300 ">
+                  <h2 class="font-black text-base lg:text-lg text-white group-hover:text-violet-300 transition-colors">{title}</h2>
+                  <span class="text-sm text-gray-300/90">{category}</span>
+                </div>
+              
+              </article>
+            </a>
+          );
+        })
+      }
+    </section>
+
+  </main>
+  <CTA/>
+</Layout>

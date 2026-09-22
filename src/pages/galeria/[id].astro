@@ -1,0 +1,269 @@
+---
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import CTA from "../../components/CTA.astro";
+
+export async function getStaticPaths() {
+  const impresiones = await getCollection("impresiones");
+
+  return impresiones.map((impresion) => ({
+    params: {
+      id: impresion.id,
+    },
+    props: {
+      impresion,
+    },
+  }));
+}
+
+const { impresion } = Astro.props;
+const { id } = impresion;
+const {
+  title,
+  description,
+  image,
+  category,
+  material,
+  color,
+  dimension,
+  peso,
+} = impresion.data;
+
+const { Content } = await render(impresion);
+---
+
+<Layout>
+  <Navbar />
+
+  <!-- Contenedor principal con ancho máximo para PC -->
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="m-4 pt-20">
+      <h1 class="font-black text-3xl text-center md:text-4xl">
+        {title}
+      </h1>
+    </div>
+
+    <hr class="border-[#e100ff]" />
+
+    <!-- Sección de Producto: Imagen a la izquierda, información a la derecha en PC -->
+    <div class="m-4 h-auto lg:flex lg:gap-8 lg:my-12 lg:items-center lg:h-150">
+      <div class="lg:w-1/2">
+        <Image
+          src={image}
+          alt={title}
+          class="rounded-xl w-full h-auto shadow-md shadow-violet-900"
+          transition:name={`img-${id}`}
+        />
+      </div>
+
+      <!-- Descripción y especificaciones técnicas -->
+      <div
+        class="mt-2 p-4 rounded-xl lg:mt-0 lg:w-1/2 flex flex-col justify-between lg:h-full"
+      >
+        <div>
+          <h2 class="font-black text-2xl pt-4 hidden lg:block">{title}</h2>
+          <div class="font-normal pt-4">
+            <Content />
+          </div>
+        </div>
+
+        <div class="mt-6 lg:h-full">
+          <h2 class="font-black mb-2">Especificaciones técnicas</h2>
+          <ul class="flex flex-col gap-4">
+            <!-- Dimensiones -->
+            <li
+              class="bg-cyan-900/20 p-4 rounded-2xl border border-violet-400/50"
+            >
+              <details>
+                <summary
+                  class="cursor-pointer list-none flex items-center focus:outline-none"
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    class="fill-current inline-block mr-2 border border-violet-900 p-1 rounded"
+                  >
+                    <use href="/sprite.svg#dimensiones"></use>
+                  </svg>
+                  <strong>Dimensiones</strong>
+                </summary>
+                <p class="mt-2 pl-9">{dimension}</p>
+              </details>
+            </li>
+
+            <!-- Material -->
+            <li
+              class="bg-cyan-900/20 p-4 rounded-2xl border border-violet-400/50"
+            >
+              <details>
+                <summary
+                  class="cursor-pointer list-none flex items-center focus:outline-none"
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    class="fill-current inline-block mr-2 border border-violet-900 p-1 rounded"
+                  >
+                    <use href="/sprite.svg#cubo"></use>
+                  </svg>
+                  <strong>Material</strong>
+                </summary>
+                <p class="mt-2 pl-9">{material}</p>
+              </details>
+            </li>
+
+            <!-- Peso -->
+            <li
+              class="bg-cyan-900/20 p-4 rounded-2xl border border-violet-400/50"
+            >
+              <details>
+                <summary
+                  class="cursor-pointer list-none flex items-center focus:outline-none"
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    class="fill-current inline-block mr-2 border border-violet-900 p-1 rounded"
+                  >
+                    <use href="/sprite.svg#peso"></use>
+                  </svg>
+                  <strong>Peso aproximado</strong>
+                </summary>
+                <p class="mt-2 pl-9">{peso}</p>
+              </details>
+            </li>
+
+            <!-- Colores -->
+            <li
+              class="bg-cyan-900/20 p-4 rounded-2xl border border-violet-400/50"
+            >
+              <details>
+                <summary
+                  class="cursor-pointer list-none flex items-center focus:outline-none"
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    class="fill-current inline-block mr-2 border border-violet-900 p-1 rounded"
+                  >
+                    <use href="/sprite.svg#paleta"></use>
+                  </svg>
+                  <strong>Colores disponibles</strong>
+                </summary>
+                <p class="mt-2 pl-9">{color}</p>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nota aclaratoria -->
+    <div class="m-4 flex border border-[#e100ff] bg-cyan-950/10 rounded-2xl">
+      <div class="p-4">
+        <svg width="20" height="20" class="fill-current">
+          <use href="/sprite.svg#exclamacion"></use>
+        </svg>
+      </div>
+      <div class="p-4">
+        <p class="italic">
+          Nota: Al ser un producto artesanal fabricado mediante impresión 3D,
+          puede presentar líneas de capa visibles propias del proceso de
+          fabricación, lo que le otorga un carácter único a cada pieza.
+        </p>
+      </div>
+    </div>
+
+    <!-- Caja de llamada a la acción optimizada para PC -->
+    <div
+      class="m-4 p-6 flex flex-col md:flex-row md:justify-between md:items-center gap-6 bg-cyan-950/10 rounded-2xl"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left"
+      >
+        <div class="shrink-0">
+          <svg width="50" height="50" class="fill-current">
+            <use href="/sprite.svg#3d-printer"></use>
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-1">¿Querés algo similar?</h2>
+          <p class="text-sm text-gray-300">
+            Podemos imprimir este diseño en el color que prefieras o crear algo
+            personalizado.
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full md:w-auto shrink-0">
+        <button
+          class="border border-[#e100ff] cursor-pointer w-full md:w-auto flex justify-center items-center px-6 py-4 rounded-2xl bg-cyan-950/50 gap-4 whitespace-nowrap"
+        >
+          <svg width="30" height="30" class="fill-current">
+            <use href="/sprite.svg#instagram"></use>
+          </svg>
+          <span>Quiero algo similar</span>
+        </button>
+      </div>
+    </div>
+
+    <hr class="m-4 border-[#e100ff]/60" />
+
+    <!-- Características del servicio: Fila horizontal en PC -->
+    <div class="m-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-8">
+      <div class="flex items-center p-4 gap-4 bg-cyan-950/5 rounded-xl">
+        <div class="shrink-0">
+          <svg width="30" height="30" class="fill-current">
+            <use href="/sprite.svg#seguridad"></use>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-black">Calidad garantizada</h3>
+          <p class="text-sm text-gray-400">Materiales de alta calidad.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center p-4 gap-4 bg-cyan-950/5 rounded-xl">
+        <div class="shrink-0">
+          <svg width="30" height="30" class="fill-current">
+            <use href="/sprite.svg#reloj"></use>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-black">Hecho a pedido</h3>
+          <p class="text-sm text-gray-400">Cada pieza se imprime para vos.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center p-4 gap-4 bg-cyan-950/5 rounded-xl">
+        <div class="shrink-0">
+          <svg width="30" height="30" class="fill-current">
+            <use href="/sprite.svg#caja"></use>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-black">Envíos o entregas</h3>
+          <p class="text-sm text-gray-400">Coordinamos la mejor opción.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center p-4 gap-4 bg-cyan-950/5 rounded-xl">
+        <div class="shrink-0">
+          <svg width="30" height="30" class="fill-current">
+            <use href="/sprite.svg#chat"></use>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-black">Atención personalizada</h3>
+          <p class="text-sm text-gray-400">Consultá por Instagram.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <CTA />
+</Layout>
