@@ -1,7 +1,7 @@
 ---
 title: "Pikachu"
 description: "Maceta decorativa"
-image: "../../assets/gallery/Pikachu.png"
+image: "../../assets/Gallery/Pikachu.png"
 category: "Hogar"
 color: "Blanco"
 dimension: "10 cm de alto x 12 cm de diámetro" # 👈 AGREGAR ESTO
