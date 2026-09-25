@@ -1,7 +1,7 @@
 ---
 title: "Bulbasur"
 description: "Figura impresa en PLA"
-image: "../../assets/gallery/Bulbasur.png"
+image: "../../assets/Gallery/Bulbasur.png"
 category: "Pokemon"
 color: "Verde, negro, blanco"
 dimension: "15 cm de alto x 10 cm de ancho"
