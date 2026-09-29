@@ -1,7 +1,7 @@
 ---
 title: "Maceta"
 description: "Maceta decorativa"
-image: "../../assets/Gallery/Maceta.png"
+image: "../../assets/Gallery/Maceta.webp"
 category: "Hogar"
 color: "Blanco"
 dimension: "10 cm de alto x 12 cm de diámetro" # 👈 AGREGAR ESTO

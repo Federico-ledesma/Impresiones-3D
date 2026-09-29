@@ -1,7 +1,7 @@
 ---
 title: "Soporte"
 description: "Maceta decorativa"
-image: "../../assets/Hero/hero.png"
+image: "../../assets/Hero/hero.webp"
 category: "Hogar"
 color: "Blanco"
 dimension: "10 cm de alto x 12 cm de diámetro" # 👈 AGREGAR ESTO
